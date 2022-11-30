@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Pseudo-Random Cold Shower Generator</title>
+    <title>Someone likes it hot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
     <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
@@ -12,6 +12,10 @@
 <body>
     <script>
         const date = new Date().toISOString().slice(0, 10);
+
+        fetch("https://worldtimeapi.org/api/ip")
+            .then(response => response.json())
+            .then(data => console.log(data.dst, data.datetime));
 
         console.log("date:", date);
         const random = new Math.seedrandom(date);
