@@ -17,21 +17,21 @@
     <script>
         //const date = new Date().toISOString().slice(0, 10);
 
-        async function fetchDate() {
+        async function main() {
             try {
-                const data = await (await fetch("http://worldtimeapi.org/api/ip")).json();
-                return data.datetime;
+                const date = await (await fetch("http://worldtimeapi.org/api/ip")).json().datetime;
+                console.log("date:", date);
+                const random = new Math.seedrandom(date);
+                console.log(random()); // Always 0.9282578795792454
+                console.log(random()); // Always 0.3752569768646784
             } catch (error) {
                 console.log("Can't fetch data");
             }
         }
 
-        const date = fetchDate();
+        main();
 
-        console.log("date:", date);
-        const random = new Math.seedrandom(date);
-        console.log(random()); // Always 0.9282578795792454
-        console.log(random()); // Always 0.3752569768646784
+
     </script>
 </body>
 
