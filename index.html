@@ -30,9 +30,9 @@
         function show_answer(result) {
             const body = event.target.parentElement;
             button.remove();
-            const p = document.createElement("p");
-            result === true ? p.textContent = "Yes" : p.textContent = "No";
-            body.appendChild(p);
+            const h2 = document.createElement("h2");
+            result === true ? h2.textContent = "Yes" : h2.textContent = "No";
+            body.appendChild(h2);
         }
     </script>
 </body>
