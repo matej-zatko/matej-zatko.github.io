@@ -3,68 +3,38 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Someone likes it hot</title>
+    <title>Hot or Cold?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
     <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <h1>Will you have to take a cold shower today?</h1>
+    <button id="button">Tell me</button>
+
     <script>
-        //const date = new Date().toISOString().slice(0, 10);
+        const date = new Date();
+        const date_string = date.toISOString().slice(0, 10);
+        const random = new Math.seedrandom(date_string);
+        const result = random() < 0.5 ? true : false;
 
-        Date.prototype.addDays = function (days) {
-            var date = new Date(this.valueOf());
-            date.setDate(date.getDate() + days);
-            return date;
+        const button = document.getElementById("button");
+
+        button.addEventListener("click", function() {});
+
+        function show_answer(result){
+            button = document.getElementById("button");
+            button.remove();
+            const body = button.parentElement;
+            const p = document.createElement("p");
+            result === true?  p.textContent = "Yes" : p.textContent = "No";
+            body.appendChild(p)
         }
-
-        async function main() {
-            try {
-                //const date = await (await fetch("http://worldtimeapi.org/api/ip")).json().datetime;
-
-                // console.log("date:", date);
-
-                // const random = new Math.seedrandom(date);
-                // console.log(random()); // Always 0.9282578795792454
-                // console.log(random()); // Always 0.3752569768646784
-            } catch (error) {
-                console.log("Can't fetch data");
-            }
-        }
-
-        let date = new Date();
-
-        let colds = 0;
-        let hots = 0;
-
-        for (let i = 0; i < 50000; i++) {
-            let = date_string = date.toISOString().slice(0, 10);
-
-            let random = new Math.seedrandom(date_string);
-
-            let result = random() < 0.5 ? true : false;
-
-            if (result === true) {
-                colds += 1;
-            } else {
-                hots += 1;
-            }
-
-            //console.log(i, date_string, random(), result);
-            date = date.addDays(1);
-        }
-
-        console.log("colds:", colds);
-        console.log("hots:", hots);
-
-        console.log("c/h:", colds/hots);
-
-
     </script>
 </body>
 
