@@ -12,3 +12,11 @@ html, body {
     text-align: center;
     height: 100%;
 }
+
+button {
+    height: 22px;
+}
+
+p {
+    height: 22px;
+}
