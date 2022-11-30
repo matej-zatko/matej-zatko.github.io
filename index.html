@@ -39,16 +39,30 @@
 
         let date = new Date();
 
-        for (let i = 0; i < 20; i++) {
+        let colds = 0;
+        let hots = 0;
+
+        for (let i = 0; i < 50000; i++) {
             let = date_string = date.toISOString().slice(0, 10);
 
             let random = new Math.seedrandom(date_string);
 
             let result = random() < 0.5 ? true : false;
 
-            console.log(i, date_string, random(), result);
+            if (result === true) {
+                colds += 1;
+            } else {
+                hots += 1;
+            }
+
+            //console.log(i, date_string, random(), result);
             date = date.addDays(1);
         }
+
+        console.log("colds:", colds);
+        console.log("hots:", hots);
+
+        console.log("c/h:", colds/hots);
 
 
     </script>
