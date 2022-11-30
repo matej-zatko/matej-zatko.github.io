@@ -45,7 +45,12 @@
             }
         }
 
-        main();
+        let date = new Date().toISOString();
+        for (let i = 0; i < 20; i++) {
+            let random = new Math.seedrandom(date.slice(0, 10));
+            console.log(i, date.slice(0, 10), random());
+            date = date.addDays(1);
+        }
 
 
     </script>
