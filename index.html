@@ -17,17 +17,29 @@
     <script>
         //const date = new Date().toISOString().slice(0, 10);
 
+        Date.prototype.addDays = function (days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        }
+
         async function main() {
             try {
                 //const date = await (await fetch("http://worldtimeapi.org/api/ip")).json().datetime;
 
-                const date = new Date().toISOString().slice(0, 10);
-                
-                console.log("date:", date);
+                let date = new Date().toISOString();
 
-                const random = new Math.seedrandom(date);
-                console.log(random()); // Always 0.9282578795792454
-                console.log(random()); // Always 0.3752569768646784
+                for (let i = 0; i < 20; i++) {
+                    const random = new Math.seedrandom(date.slice(0, 10));
+                    console.log(date.slice(0, 10), random());
+                    date = date.addDays(1);
+                }
+
+                // console.log("date:", date);
+
+                // const random = new Math.seedrandom(date);
+                // console.log(random()); // Always 0.9282578795792454
+                // console.log(random()); // Always 0.3752569768646784
             } catch (error) {
                 console.log("Can't fetch data");
             }
