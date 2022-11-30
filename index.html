@@ -11,7 +11,10 @@
 
 <body>
     <script>
-        let random = new Math.seedrandom('hello.');
+        const date = new Date().toISOString().slice(0, 10);
+
+        console.log("date:", date);
+        const random = new Math.seedrandom(date);
         console.log(random()); // Always 0.9282578795792454
         console.log(random()); // Always 0.3752569768646784
     </script>
