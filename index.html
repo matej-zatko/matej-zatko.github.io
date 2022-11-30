@@ -25,15 +25,15 @@
 
         const button = document.getElementById("button");
 
-        button.addEventListener("click", function() {});
+        button.addEventListener("click", function () { show_answer(result) });
 
-        function show_answer(result){
+        function show_answer(result) {
             button = document.getElementById("button");
-            button.remove();
             const body = button.parentElement;
+            button.remove();
             const p = document.createElement("p");
-            result === true?  p.textContent = "Yes" : p.textContent = "No";
-            body.appendChild(p)
+            result === true ? p.textContent = "Yes" : p.textContent = "No";
+            body.appendChild(p);
         }
     </script>
 </body>
