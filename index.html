@@ -13,9 +13,10 @@
     <script>
         const date = new Date().toISOString().slice(0, 10);
 
-        fetch("https://worldtimeapi.org/api/ip")
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        fetch("https://worldtimeapi.org/api/timezone/" + tz)
             .then(response => response.json())
-            .then(data => console.log(data.dst, data.datetime));
+            .then(data => console.log(tz, data.dst, data.datetime));
 
         console.log("date:", date);
         const random = new Math.seedrandom(date);
