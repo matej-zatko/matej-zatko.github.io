@@ -21,3 +21,10 @@ p {
     height: 22px;
     margin: 0px;
 }
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: rgb(32, 32, 32);
+        color: white;
+    }
+}
