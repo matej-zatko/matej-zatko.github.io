@@ -43,7 +43,10 @@
             let = date_string = date.toISOString().slice(0, 10);
 
             let random = new Math.seedrandom(date_string);
-            console.log(date_string, random());
+
+            let result = random < 0.5 ? true : false;
+
+            console.log(i, date_string, result);
             date = date.addDays(1);
         }
 
