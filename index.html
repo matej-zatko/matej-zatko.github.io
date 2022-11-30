@@ -28,8 +28,7 @@
         button.addEventListener("click", function () { show_answer(result) });
 
         function show_answer(result) {
-            button = document.getElementById("button");
-            const body = button.parentElement;
+            const body = event.target.parentElement;
             button.remove();
             const p = document.createElement("p");
             result === true ? p.textContent = "Yes" : p.textContent = "No";
