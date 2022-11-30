@@ -1,1 +1,20 @@
-wassup
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pseudo-Random Cold Shower Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+</head>
+
+<body>
+    <script>
+        let random = new Math.seedrandom('hello.');
+        console.log(random()); // Always 0.9282578795792454
+        console.log(random()); // Always 0.3752569768646784
+    </script>
+</body>
+
+</html>
