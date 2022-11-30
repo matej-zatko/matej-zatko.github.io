@@ -11,12 +11,18 @@
 
 <body>
     <script>
-        const date = new Date().toISOString().slice(0, 10);
+        //const date = new Date().toISOString().slice(0, 10);
 
-        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        fetch("https://worldtimeapi.org/api/timezone/" + tz)
-            .then(response => response.json())
-            .then(data => console.log(tz, data.dst, data.datetime));
+        async function fetchDate() {
+            try {
+                const data = await (await fetch("http://worldtimeapi.org/api/ip")).json();
+                return data.datetime;
+            } catch (error) {
+                console.log("Can't fetch data");
+            }
+        }
+
+        const date = fetchDate();
 
         console.log("date:", date);
         const random = new Math.seedrandom(date);
