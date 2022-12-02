@@ -12,13 +12,18 @@
 
 <body>
     <div class="container">
-    <h1>Will you have to take a cold shower today?</h1>
-    <button id="button">Tell me</button>
-</div>
+        <p id="time"></p>
+        <h1>Will you have to take a cold shower today?</h1>
+        <button id="button">Tell me</button>
+    </div>
 
     <script>
         const date = new Date();
         const date_string = date.toISOString().slice(0, 10);
+
+        const options = { weekday: 'short', month: 'numeric', day: 'numeric' };
+        document.getElementById("time").textContent = date.toLocaleDateString("cs-CZ", options);
+
         const random = new Math.seedrandom(date_string);
         const result = random() < 0.5 ? true : false;
 
@@ -27,11 +32,11 @@
         button.addEventListener("click", function () { show_answer(result) });
 
         function show_answer(result) {
-            const body = event.target.parentElement;
+            const container = event.target.parentElement;
             button.remove();
             const p = document.createElement("p");
             result === true ? p.textContent = "Yes" : p.textContent = "No";
-            body.appendChild(p);
+            container.appendChild(p);
         }
     </script>
 </body>
