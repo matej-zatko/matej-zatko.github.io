@@ -21,8 +21,8 @@
         const date = new Date();
         const date_string = date.toISOString().slice(0, 10);
 
-        const options = { weekday: 'short', month: 'numeric', day: 'numeric' };
-        document.getElementById("time").textContent = date.toLocaleDateString("cs-CZ", options);
+        const options = { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric' };
+        document.getElementById("time").textContent = date.toLocaleDateString("en-US", options);
 
         const random = new Math.seedrandom(date_string);
         const result = random() < 0.5 ? true : false;
